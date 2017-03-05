@@ -12,6 +12,12 @@ class RibbitsController < ApplicationController
     end
   end
 
+  def index
+    @ribbits = Ribbit.all include: :user 
+    @ribbit = Ribbit.new
+    
+  end
+
   private 
   def params_ribbits
     params.require(:ribbit).permit(:user_id,:content)
