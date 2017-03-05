@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true, format: { with: /@/ }
-  
+  has_many :ribbits
   before_validation :prep_email
   before_save :create_avatar_url
   
